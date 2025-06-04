@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golf Pick-6 Selection</title>
+    <link rel="stylesheet" href="golfSelection.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&family=Josefin+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+</head>
+<body>
+    <div class="title-container">
+        <div class="back-button-container">
+            <a href="/homepage.html" class="back-button">Back to Homepage</a>
+        </div>
+        <h1 class="title">Golf Pick-6 Draft</h1>
+    </div>
+    
+    <div class="controls-container">
+        <div class="draft-status">
+            <div class="round-indicator">Round <span id="currentRound">1</span> of 6</div>
+            <div class="turn-indicator"><span id="currentUserName">User</span> is on the clock</div>
+            <div class="timer-container">
+                <div class="timer-bar">
+                    <div id="timerProgress" class="timer-progress"></div>
+                </div>
+                <div class="timer-text"><span id="timerSeconds">60</span> seconds remaining</div>
+            </div>
+        </div>
+        <div class="pool-selector-container">
+            <label for="poolSelector" class="pool-selector-label">Select Pool:</label>
+            <select id="poolSelector" class="pool-selector">
+                <!-- Pools will be populated dynamically -->
+                <option value="loading">Loading pools...</option>
+            </select>
+        </div>
+    </div>
+
+        <!-- Your Team Display -->
+        <div class="team-display">
+            <h2>Your Team</h2>
+            <div id="yourTeamContainer" class="your-team-container">
+                <!-- Selected golfers will be displayed here -->
+                <div class="empty-message">No golfers selected yet</div>
+            </div>
+        </div>
+    <div class="main-wrapper">
+        <div class="container">
+            <div id="pickContainer" class="golfers-container">
+                <!-- Golfer selection cards will be populated here -->
+            </div>
+            
+            <!-- Status messages will be added here with JavaScript when needed -->
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Confirm Your Selection</h2>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to select <span id="selectedGolferName">Golfer Name</span> as your Round <span id="selectedRound">1</span> pick?</p>
+            </div>
+            <div class="modal-footer">
+                <button id="cancelSelection" class="cancel-button">Cancel</button>
+                <button id="confirmSelection" class="confirm-button">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="golfSelection.js"></script>
+</body>
+</html>
