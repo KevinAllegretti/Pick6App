@@ -3900,7 +3900,7 @@ async function initializeVendingSpotlight(poolName) {
     
     try {
         // Fetch vending spotlight data
-        const response = await fetch(`https://www.pick6.club/api/getVendingSpotlight?poolName=${encodeURIComponent(poolName)}`);
+        const response = await fetch(`/api/getVendingSpotlight?poolName=${encodeURIComponent(poolName)}`);
         const data = await response.json();
         
         if (!data.success) {
@@ -3970,12 +3970,12 @@ function switchVendingMode(poolName) {
         updateVendingSpotlightDisplay(poolName);
     }
 }
-
 async function updateVendingSpotlightDisplay(poolName) {
     const spotlightElement = getVendingSpotlightElement(poolName);
     if (!spotlightElement) return;
     
-    const titleElement = spotlightElement.querySelector('.title-header-bar');
+    // Instead of looking for '.title-header-bar', look for any title header bar
+const titleElement = spotlightElement.querySelector('[class*="title-header-bar"]');
     const contentElement = spotlightElement.querySelector('.spotlight-content');
     
     if (!titleElement || !contentElement) {
@@ -3994,7 +3994,7 @@ async function updateVendingSpotlightDisplay(poolName) {
     // Get current week for display (showing previous week's data)
     let displayWeek = 1;
     try {
-        const weekResponse = await fetch('https://www.pick6.club/getCurrentWeek');
+        const weekResponse = await fetch('/getCurrentWeek');
         if (weekResponse.ok) {
             const weekData = await weekResponse.json();
             const currentWeek = parseInt(weekData.week) || 1;
@@ -4007,21 +4007,26 @@ async function updateVendingSpotlightDisplay(poolName) {
     // Determine what data to show based on current mode
     let dataToShow = null;
     let title = '';
+    let isHotMode = false; // Track which mode we're in
     
     if (currentMode === 'hottest' && spotlightData.hottest) {
         dataToShow = spotlightData.hottest;
-        title = `Hottest Picker of Week ${displayWeek}!`;
+        title = `🔥 Hottest of Week ${displayWeek}!`;
+        isHotMode = true;
     } else if (currentMode === 'biggest_loser' && spotlightData.biggestLoser) {
         dataToShow = spotlightData.biggestLoser;
-        title = `Biggest Loser of Week ${displayWeek}!`;
+        title = `❄️ Coldest of Week ${displayWeek}!`;
+        isHotMode = false;
     } else {
         // Fallback to whichever data we have
         if (spotlightData.hottest) {
             dataToShow = spotlightData.hottest;
-            title = `Hottest Picker of Week ${displayWeek}!`;
+            title = `🔥 Hottest of Week ${displayWeek}!`;
+            isHotMode = true;
         } else if (spotlightData.biggestLoser) {
             dataToShow = spotlightData.biggestLoser;
-            title = `Biggest Loser of Week ${displayWeek}!`;
+            title = `❄️ Biggest Loser of Week ${displayWeek}!`;
+            isHotMode = false;
         }
     }
     
@@ -4030,13 +4035,14 @@ async function updateVendingSpotlightDisplay(poolName) {
         return;
     }
     
-    // Update title
+    // Update title element class and content based on mode
+    titleElement.className = isHotMode ? 'title-header-bar-hot' : 'title-header-bar-cold';
     titleElement.textContent = title;
     
-    // Get user profile picture
+    // Rest of your existing code for profile picture and content...
     let profilePicture = 'Default.png';
     try {
-        const profileResponse = await fetch(`https://www.pick6.club/api/getUserProfile/${encodeURIComponent(dataToShow.username.toLowerCase())}`);
+        const profileResponse = await fetch(`/api/getUserProfile/${encodeURIComponent(dataToShow.username.toLowerCase())}`);
         if (profileResponse.ok) {
             const profileData = await profileResponse.json();
             profilePicture = profileData.profilePicture || 'Default.png';
@@ -4142,6 +4148,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Cleanup when page unloads
 window.addEventListener('beforeunload', cleanupVendingSpotlights);
+
 
 // New function to display only the playoff bracket without the regular pool
 async function displayPlayoffBracketOnly(pool) {
