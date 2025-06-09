@@ -3322,7 +3322,7 @@ function displayPlayoffPool(pool) {
         // Existing code...
         
         // Add this line to initialize the form listeners
-        setupPoolFormListeners();
+        //setupPoolFormListeners();
         
         // Rest of your existing code...
     });
