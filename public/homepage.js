@@ -1148,10 +1148,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 throw new Error('Network response was not ok.');
             }
             const userData = await response.json();
-            const profilePicSrc = userData.profilePicture || 'Default.png';
-            document.querySelector('.profile-icon').src = profilePicSrc;
-            document.querySelector('.profile-icon-center').src = profilePicSrc;
-
+          const fullProfilePicUrl = profilePicSrc.startsWith('http') ? profilePicSrc : `https://www.pick6.club/${profilePicSrc}`;
+document.querySelector('.profile-icon').src = fullProfilePicUrl;
+document.querySelector('.profile-icon-center').src = fullProfilePicUrl;
             const poolResponse = await fetch(`https://www.pick6.club/pools/userPoolInfo/${username}`);
             if (!poolResponse.ok) {
                 throw new Error('Network response was not ok.');
@@ -1210,7 +1209,9 @@ async function loadUserProfile() {
     const username = localStorage.getItem('username').toLowerCase();
     const response = await fetch(`https://www.pick6.club/api/getUserProfile/${username}`);
     const userData = await response.json();
-    document.querySelector('.profile-icon-center').src = userData.profilePicture || 'Default.png';
+    const profilePic = userData.profilePicture || 'Default.png';
+const fullProfilePicUrl = profilePic.startsWith('http') ? profilePic : `https://www.pick6.club/${profilePic}`;
+document.querySelector('.profile-icon-center').src = fullProfilePicUrl;
     document.getElementById('displayName').textContent = userData.username;
 }
 
@@ -1419,8 +1420,11 @@ function updateProfileDisplay(userData) {
     
     // Update profile picture
     const profileImg = panel.querySelector('.profile-icon-center');
-    if (profileImg) profileImg.src = userData.profilePicture || 'Default.png';
-    
+  if (profileImg) {
+    const profilePic = userData.profilePicture || 'Default.png';
+    const fullProfilePicUrl = profilePic.startsWith('http') ? profilePic : `https://www.pick6.club/${profilePic}`;
+    profileImg.src = fullProfilePicUrl;
+}
     // Update username
     const nameEl = document.getElementById('displayNameInPool');
     if (nameEl) nameEl.textContent = userData.username;
