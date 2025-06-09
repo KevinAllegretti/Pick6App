@@ -7190,6 +7190,9 @@ async function loadAndDisplayUserPools() {
     return;
   }
 
+  console.log('=== POOLS FETCH DEBUG START ===');
+  console.log('Current username:', currentUsername);
+
   const poolContainerWrapper = document.getElementById('pool-container-wrapper');
   if (!poolContainerWrapper) {
     console.error('Pool container wrapper not found');
@@ -7203,28 +7206,43 @@ async function loadAndDisplayUserPools() {
   poolContainerWrapper.appendChild(newOrderedContainer);
   
   try {
-    const response = await fetch(`https://www.pick6.club/pools/userPools/${encodeURIComponent(currentUsername.toLowerCase())}`);
+    const url = `https://www.pick6.club/pools/userPools/${encodeURIComponent(currentUsername.toLowerCase())}`;
+    console.log('Fetching pools from URL:', url);
+    
+    const response = await fetch(url);
+    console.log('Pools response status:', response.status);
+    console.log('Pools response ok:', response.ok);
+    
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     
     const pools = await response.json();
+    console.log('Pools data received:', pools);
+    console.log('Number of pools:', pools.length);
     
-    // Get current week to check for playoff time
-    const weekResponse = await fetch('/getCurrentWeek');
+    // FIX: Change this to use absolute URL
+    console.log('Fetching current week...');
+    const weekResponse = await fetch('https://www.pick6.club/getCurrentWeek');
+    console.log('Week response status:', weekResponse.status);
+    
     let currentWeek = 1;
     
     if (weekResponse.ok) {
       const weekData = await weekResponse.json();
+      console.log('Week data:', weekData);
       currentWeek = parseInt(weekData.week) || 1;
     }
+    console.log('Current week:', currentWeek);
     
     // For testing purposes, you can force this to true
     // In production, uncomment the line below
     const isPlayoffTime = currentWeek >= 14 && currentWeek <= 17;
+    console.log('Is playoff time:', isPlayoffTime);
     
     // Check if user is in any survivor pools
     const hasSurvivorPool = pools.some(pool => pool.mode === 'survivor');
+    console.log('Has survivor pool:', hasSurvivorPool);
     
     // Show the survivor button if the user is in a survivor pool
     if (hasSurvivorPool && document.getElementById('survivorPicksButton')) {
@@ -7233,12 +7251,14 @@ async function loadAndDisplayUserPools() {
     
     // Check if user is in any golf pools
     const hasGolfPool = pools.some(pool => pool.mode === 'golf');
+    console.log('Has golf pool:', hasGolfPool);
     
     // Show the golf button if the user is in a golf pool
     if (hasGolfPool) {
       displayGolfSelectionButton();
     }
     
+    console.log('Starting to sort pools...');
     // Sort pools by orderIndex
     pools.sort((a, b) => {
       const memberA = a.members.find(m => m.username.toLowerCase() === currentUsername.toLowerCase());
@@ -7253,8 +7273,10 @@ async function loadAndDisplayUserPools() {
       return a.name.localeCompare(b.name);
     });
     
+    console.log('Starting to process pools...');
     // Process each pool
     for (const pool of pools) {
+      console.log(`Processing pool: ${pool.name}, mode: ${pool.mode}`);
       if (pool.mode === 'survivor') {
         // Regular survivor pool
         await displaySurvivorPool(pool);
@@ -7265,15 +7287,22 @@ async function loadAndDisplayUserPools() {
         const hasPlayoffBracket = pool.mode === 'classic' && pool.hasPlayoffs && isPlayoffTime;
         await displayNewPoolContainer(pool, hasPlayoffBracket, currentWeek);
       }
+      console.log(`Finished processing pool: ${pool.name}`);
     }
     
+    console.log('Updating pool actions list...');
     // Update pool actions list
     requestAnimationFrame(() => {
       updatePoolActionsList();
     });
     
+    console.log('=== POOLS FETCH DEBUG SUCCESS ===');
+    
   } catch (error) {
+    console.error('=== POOLS FETCH DEBUG ERROR ===');
     console.error('Error fetching or processing pools:', error);
+    console.error('Error message:', error.message);
+    console.error('Error stack:', error.stack);
   }
 }
 
