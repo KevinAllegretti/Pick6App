@@ -1132,7 +1132,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.getElementById('logout-button').addEventListener('click', function() {
         localStorage.removeItem('username');
-        window.location.href = '/login.html';
+        window.location.href = '/index.html';
     });
 
     window.addEventListener('load', async () => {

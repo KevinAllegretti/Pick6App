@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             showErrorMessage('Failed to load golf selection page. Please try again later.');
         }
     } else {
-        window.location.href = '/login.html';
+        window.location.href = '/index.html';
     }
 });
 

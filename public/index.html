@@ -3,280 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pick-6 Homepage</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="homepage-styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Quantico:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Nosifer&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Butcherman&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=New+Rocker&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-
+    <title>Login - Pick 6</title>
+    <link rel="stylesheet" href="loginStyles.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.png" type="image/png">
 
-    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" sizes="32x32" href="favicon.png" type="image/x-icon">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-          <!-- Left section - Profile -->
-          <div class="nav-left">
-            <div class="profile-section" id="profileIconTemplate">
-              <div class="profile-icon-container">
-                <img src="Default.png" alt="User Profile" class="profile-icon" />
-              </div>
-              <!--<a href="rules.html" class="rule-book-button nav-button">
-                <i class="fas fa-book"></i>
-                <span>Rule Book</span>
-              </a>
-              <a href="rules.html" class="rule-book-button nav-button">
-                <i class="fas fa-question-circle"></i>
-                <span>How To Play</span>
-              </a>-->
-            </div>
-          </div>
-      
-          <!-- Center section -->
-          <div class="nav-center">
-            <div class="nav-title">PICK 6</div>
-            <div class="nav-subtitle" id="currentWeekDisplay">Loading Week...</div>
-          </div>
-      
-          <!-- Right section -->
-          <div class="nav-right">
-         
-            <button class="nav-button chat-btn" id="globalChatBtn">
-              <i class="fas fa-comments"></i>
-              <span>Chat</span>
-            </button>
-            <a href="info.html" class="nav-button info-btn">
-                <i class="fas fa-info-circle"></i>
-              </a>
-          </div>
-        </div>
-      </nav>
-      
-      <!-- Keep the existing slide-out panel, just move it outside the containerbutton -->
-      <div id="slideOutPanel" class="slide-out-panel">
-        <div class="panel-content">
-          <button id="closePanelBtn" class="close-panel-btn">&times;</button>
-          <div class="profile-icon-container-center">
-            <img src="Default.png" alt="User Profile" class="profile-icon-center" />
-          </div>
-          <form id="profileForm" action="/profile/uploadProfilePicture" method="post" enctype="multipart/form-data">
-            <div class="account-options">
-              <div class="welcome-message">
-                <span id="displayName" class="neon-text"></span>
-              </div>
-              <label for="profilePic" class="custom-file-upload">
-                <i class="fa fa-cloud-upload"></i> Upload Profile Picture
-              </label>
-              <input type="file" id="profilePic" name="profilePic" style="display: none;" />
-            </div>
-          </form>
-          <div class="bio-container">
-            <h3 class="bio-title">Bio</h3>
-            <textarea id="userBio" maxlength="60" placeholder="Write a bio..."></textarea>
-            <button id="saveBioButton">Save Bio</button>
-          </div>
-          <button id="logout-button" class="logout-button">Logout</button>
-        </div>
-      </div>
-      
-
     <div class="container">
-        
-        <div class="neon-sign">
-           <!-- PICK 6-->
+        <div class = "Logo">
+            <img src = "aiP6.png">
 
         </div>
-        <!--<div class="week">Playoff Week 3</div>-->
-       <!--<button id="savePicksButton">Save Picks to Last Week</button>--> 
-       <!-- <button id="fetchScoresButton">Fetch MLB Scores</button>--> 
-        <div id="main-content">
-            <div style="width: 100%; margin-bottom: 20px;">
-                <div id="countdown-container" class="countdown-container"></div>
-                <a href="rules.html" class="how-to-play-button">
-                  <i class="fas fa-question-circle"></i>
-                  <span>HOW TO PLAY</span>
-                </a>
-                <button id="globalPicksButton" class="global-picks-button">Pick Selection Page</button>
-                <button id="survivorPicksButton" class="survivor-picks-button" style="display: none;">Survivor Pick Selection</button>
-            </div>
-            <div id="pool-container-wrapper">
-                <!-- New pool containers will be added here -->
+        <div class="card">
+            <div class="card-content">
+                <div class="forms">
+                    <!-- Login Form -->
+                    <div class="form login active">
+                        <span class="title"> Pick 6: Login</span>
+                        <form id="login-form"> <!-- Added id for the login form -->
+                            <div class="input-field">
+                                <input type="text" name="username" placeholder="Username" required>
+                            </div>
+                            <div class="input-field">
+                                <input type="password" name="password" placeholder="Password" required>
+                            </div>
+                            <div class="action">
+                                <button type="submit">Login</button>
+                            </div>
+                        </form>
+                        <div class="form-link">
+                            <span>Don't have an account? <a href="#" id="show-register">Register here</a></span>
+                        </div>
+                    </div>
+                    <!-- Registration Form -->
+                    <div class="form register" id="registration-container" style="display:none;">
+                        <span class="title">Register</span>
+                        <form id="registration-form"> <!-- Updated to use id for JS targeting -->
+                            <div class="input-field">
+                                <input type="text" name="username" placeholder="Username" required>
+                            </div>
+<!--
+                            <div class="input-field">
+                                <input type="email" name="email" placeholder="Email" required> 
+                            </div>-->
+                            
+                            <div class="input-field">
+                                <input type="password" name="password" placeholder="Password" required>
+                            </div>
+
+                            <div class="action">
+                                <button type="submit">Register</button>
+                            </div>
+                        </form>
+                        <div class="form-link">
+                            <span>Already have an account? <a href="#" id="show-login">Login here</a></span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    <script src="login.js"></script>
+</body>
+</html>
 
-<div class="pool-manager-container">
-    <div class="pool-manager">
-        <div class="header">
-            <h2>Pool Manager</h2>
-        </div>
-
-        <div class="pool-actions-section">
-            <div class="pool-actions-header">
-              <h3>Your Pools: </h3>
-              
-            </div>
-            <div class="pool-actions-list"></div>
-            <h4>Use the arrows to arrange the order they display on your homepage! </h4>
-          </div>
-
-          <div class="tab-buttons">
-            <button class="tab-btn active" data-tab="create">Create Pool</button>
-            <button class="tab-btn" data-tab="join">Join Pool</button>
-        </div>
-        <div class="tab-content" id="create-pool-content">
-            <div class="mode-selection">
-                <button class="mode-card active" data-mode="classic">
-                    <div class="mode-title">Classic Mode</div>
-                   <!-- <div class="mode-description">Traditional Pick 6 experience</div>-->
-                </button>
-                <button class="mode-card" data-mode="survivor">
-                    <div class="mode-title">Survivor Mode</div>
-                    
-                    <!--<div class="mode-description">
-                        Survive the week
-                    </div>-->
-                </button>
-
-                <button class="mode-card" data-mode="golf">
-                  <div class="mode-title">Golf Pick 6</div>
-              </button>
-            </div>
-
-            <form id="create-pool-form" class="pool-form">
-                <div class="form-group">
-                    <label>Pool Name</label>
-                    <input type="text" placeholder="Enter pool name" required>
-                </div>
-                
-                <div class="form-group">
-                    <label>Privacy Setting</label>
-                    <button type="button" id="privacy-btn" class="privacy-btn">
-                      <i class="icon fas fa-globe"></i>
-                      <span>Public</span>
-                    </button>
-                  </div>
-                  <div class="password-group hidden">
-                    <label for="pool-password">Password</label>
-                    <input type="password" id="pool-password" placeholder="Enter pool password">
-                  </div>
-                <!-- Add this to your create pool form, right after the privacy toggle -->
-<div id="playoffs-toggle" class="form-group playoffs-toggle hidden">
-    <label class="checkbox-container">
-      <p> [Classic Mode Only]</p>
-        <input type="checkbox" id="hasPlayoffs" name="hasPlayoffs"> 
-        <span class="checkbox-label">Enable Playoffs</span>
-
-    </label>
-    <div class="playoffs-info">
-        <p> A head 2 head bracket from Week 14-17 with the top 10 players. (Only supports pools with 6 or more players)</p>
-    </div>
-</div>
-
-                <button type="submit" class="submit-btn">Create Pool</button>
-            </form>
-            
-        </div>
-
-        <div class="tab-content hidden" id="join-pool-content">
-            <form id="join-pool-form" class="pool-form">
-                <div class="form-group">
-                    <label>Pool Name</label>
-                    <input type="text" placeholder="Enter pool name" required>
-                </div>
-
-                <div class="form-group">
-                    <label>Password (If private)</label>
-                    <input type="password" placeholder="Enter pool password">
-                </div>
-
-                <button type="submit" class="submit-btn">Join Pool</button>
-            </form>
-        </div>
-    </div>
-</div>
 
 <!--
-    <template id="chat-template">
-        <div class="chat-wrapper">
-           <div class="chat-tab" onclick="toggleChat(this)">Chat</div>
-            <div class="chat-container">
-                <div class="chat-toggle">
-                    <button class="chat-toggle-button" data-mode="local" onclick="setChatMode(this)">Local</button>
-                    <button class="chat-toggle-button" data-mode="global" onclick="setChatMode(this)">Global</button>
-                </div>
-                <div class="chat-box"></div>
-                <input type="text" class="chat-input" placeholder="Type a message...">
-                <button class="send-chat-button">Send</button>
-            </div>
-        </div>
-    </template>-->
+<!DOCTYPE html>
+<html lang="en">
 
-    <template id="chat-template">
-        <div class="chat-wrapper">
-            <div class="chat-container">
-                <div class="chat-toggle">
-                    <button class="chat-toggle-button active" data-mode="global" onclick="setChatMode(this)">Global</button>
-                    <!-- We'll add the dropdown for pools later -->
-                </div>
-                <div class="chat-box"></div>
-                <input type="text" class="chat-input" placeholder="Type a message...">
-                <button class="send-chat-button">Send</button>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Pick 6</title>
+    <link rel="stylesheet" href="loginStyles.css">
+</head>
+<body>
+    <div class="login-container">
+        <h1>Pick 6 Login</h1>
+
+        <form action="/users/login" method="post">
+            <div class="input-field">
+                <input type="text" name="username" placeholder="Username" required>
             </div>
-        </div>
-    </template>
-    <!-- Template for in-pool profiles -->
-    <template id="in-pool-profile-template">
-        <div id="slideOutPanelInPool" class="slide-out-panel">
-            <div class="panel-content">
-                <button id="closePanelBtnInPool" class="close-panel-btn">&times;</button>
-                <div class="profile-icon-container-center">
-                    <img src="Default.png" alt="User Profile" class="profile-icon-center" />
-                   <!--  <img src="HalloweenDefault.png" alt="User Profile" class="profile-icon-center" /> -->
-                </div>
-                <div class="welcome-message">
-                    <span id="displayNameInPool" class="neon-text"></span>
-                </div>
-                <div class="bio-info">
-                    <h3 class="bio-title">Bio</h3>
-                    <div id="userBioInPool" class="bio-content">
-                        <!-- Bio will be inserted here -->
-                    </div>
-                </div>
-                <div class="season-record-info">
-                    <h3 class="season-record-title">Stats</h3>
-                    <div id="userRecordInPool" class="season-record-content">
-                        <!-- Win, Loss, Push records will be inserted here -->
-                    </div>
-                </div>
+            <div class="input-field">
+                <input type="password" name="password" placeholder="Password" required>
             </div>
-        </div>
-    </template>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <div class="form-toggle">
+        <button type="button" onclick="toggleForms()">Register</button>
+    </div>
     
-    <script src="homepage.js"></script>
+    <div class="login-container" id="registration-container" style="display:none;">
+        <h1>Register</h1>
+        <form action="/users/register" method="post">
+            <div class="input-field">
+                <input type="text" name="username" placeholder="Username" required>
+            </div>
+            <div class="input-field">
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+            <div class="input-field">
+                <input type="email" name="email" placeholder="Email" required>
+            </div>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+    <script>
+        function toggleForms() {
+            const loginContainer = document.querySelector('.login-container');
+            const registrationContainer = document.getElementById('registration-container');
+            loginContainer.style.display = loginContainer.style.display === 'none' ? 'block' : 'none';
+            registrationContainer.style.display = registrationContainer.style.display === 'block' ? 'none' : 'block';
+        }
+        </script>
+        
 
 </body>
 </html>
+
+
+
+    
+-->
