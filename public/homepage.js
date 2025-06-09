@@ -3189,7 +3189,7 @@ function addPoolControls(poolWrapper, pool, currentUsername) {
 
 // Add this function to your existing homepage.js
 // This will display playoff pools in a bracket format
-
+/*
 function displayPlayoffPool(pool) {
     const teamLogos = {
         'Arizona Cardinals': '/ARILogo.png',
@@ -3317,7 +3317,7 @@ function displayPlayoffPool(pool) {
         updatePoolActionsList();
     }, 100);
 
-
+*/
     document.addEventListener('DOMContentLoaded', function() {
         // Existing code...
         
