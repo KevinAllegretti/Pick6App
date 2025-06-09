@@ -3900,7 +3900,7 @@ async function initializeVendingSpotlight(poolName) {
     
     try {
         // Fetch vending spotlight data
-        const response = await fetch(`/api/getVendingSpotlight?poolName=${encodeURIComponent(poolName)}`);
+        const response = await fetch(`https://www.pick6.club/api/getVendingSpotlight?poolName=${encodeURIComponent(poolName)}`);
         const data = await response.json();
         
         if (!data.success) {
@@ -3994,7 +3994,7 @@ const titleElement = spotlightElement.querySelector('[class*="title-header-bar"]
     // Get current week for display (showing previous week's data)
     let displayWeek = 1;
     try {
-        const weekResponse = await fetch('/getCurrentWeek');
+        const weekResponse = await fetch('https://www.pick6.club/getCurrentWeek');
         if (weekResponse.ok) {
             const weekData = await weekResponse.json();
             const currentWeek = parseInt(weekData.week) || 1;
@@ -4042,7 +4042,7 @@ const titleElement = spotlightElement.querySelector('[class*="title-header-bar"]
     // Rest of your existing code for profile picture and content...
     let profilePicture = 'Default.png';
     try {
-        const profileResponse = await fetch(`/api/getUserProfile/${encodeURIComponent(dataToShow.username.toLowerCase())}`);
+        const profileResponse = await fetch(`https://www.pick6.club/api/getUserProfile/${encodeURIComponent(dataToShow.username.toLowerCase())}`);
         if (profileResponse.ok) {
             const profileData = await profileResponse.json();
             profilePicture = profileData.profilePicture || 'Default.png';
