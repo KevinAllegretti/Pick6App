@@ -178,38 +178,38 @@ const teamColorClasses = {
 
 // Team logos
 const teamLogos = {
-    'Arizona Cardinals': '/ARILogo.png',
-    'Atlanta Falcons': '/ATLLogo.png',
-    'Baltimore Ravens': '/BALLogo.png',
-    'Buffalo Bills': '/BUFLogo.png',
-    'Carolina Panthers': '/CARLogo.png',
-    'Chicago Bears': '/CHILogo.png',
-    'Cincinnati Bengals': '/CINLogo.png',
-    'Cleveland Browns': '/CLELogo.png',
-    'Dallas Cowboys': '/DALLogo.png',
-    'Denver Broncos': '/DENLogo.png',
-    'Detroit Lions': '/DETLogo.png',
-    'Green Bay Packers': '/GBLogo.png',
-    'Houston Texans': '/HOULogo.png',
-    'Indianapolis Colts': '/INDLogo.png',
-    'Jacksonville Jaguars': '/JAXLogo.png',
-    'Kansas City Chiefs': '/KCLogo.png',
-    'Las Vegas Raiders': '/LVLogo.png',
-    'Los Angeles Chargers': '/LACLogo.png',
-    'Los Angeles Rams': '/LARLogo.png',
-    'Miami Dolphins': '/MIALogo.png',
-    'Minnesota Vikings': '/MINLogo.png',
-    'New England Patriots': '/NELogo.png',
-    'New Orleans Saints': '/NOLogo.png',
-    'New York Giants': '/NYGLogo.png',
-    'New York Jets': '/NYJLogo.png',
-    'Philadelphia Eagles': '/PHILogo.png',
-    'Pittsburgh Steelers': '/PITLogo.png',
-    'San Francisco 49ers': '/SFLogo.png',
-    'Seattle Seahawks': '/SEALogo.png',
-    'Tampa Bay Buccaneers': '/TBLogo.png',
-    'Tennessee Titans': '/TENLogo.png',
-    'Washington Commanders': '/WASLogo.png'
+    'Arizona Cardinals': 'https://www.pick6.club/ARILogo.png',
+    'Atlanta Falcons': 'https://www.pick6.club/ATLLogo.png',
+    'Baltimore Ravens': 'https://www.pick6.club/BALLogo.png',
+    'Buffalo Bills': 'https://www.pick6.club/BUFLogo.png',
+    'Carolina Panthers': 'https://www.pick6.club/CARLogo.png',
+    'Chicago Bears': 'https://www.pick6.club/CHILogo.png',
+    'Cincinnati Bengals': 'https://www.pick6.club/CINLogo.png',
+    'Cleveland Browns': 'https://www.pick6.club/CLELogo.png',
+    'Dallas Cowboys': 'https://www.pick6.club/DALLogo.png',
+    'Denver Broncos': 'https://www.pick6.club/DENLogo.png',
+    'Detroit Lions': 'https://www.pick6.club/DETLogo.png',
+    'Green Bay Packers': 'https://www.pick6.club/GBLogo.png',
+    'Houston Texans': 'https://www.pick6.club/HOULogo.png',
+    'Indianapolis Colts': 'https://www.pick6.club/INDLogo.png',
+    'Jacksonville Jaguars': 'https://www.pick6.club/JAXLogo.png',
+    'Kansas City Chiefs': 'https://www.pick6.club/KCLogo.png',
+    'Las Vegas Raiders': 'https://www.pick6.club/LVLogo.png',
+    'Los Angeles Chargers': 'https://www.pick6.club/LACLogo.png',
+    'Los Angeles Rams': 'https://www.pick6.club/LARLogo.png',
+    'Miami Dolphins': 'https://www.pick6.club/MIALogo.png',
+    'Minnesota Vikings': 'https://www.pick6.club/MINLogo.png',
+    'New England Patriots': 'https://www.pick6.club/NELogo.png',
+    'New Orleans Saints': 'https://www.pick6.club/NOLogo.png',
+    'New York Giants': 'https://www.pick6.club/NYGLogo.png',
+    'New York Jets': 'https://www.pick6.club/NYJLogo.png',
+    'Philadelphia Eagles': 'https://www.pick6.club/PHILogo.png',
+    'Pittsburgh Steelers': 'https://www.pick6.club/PITLogo.png',
+    'San Francisco 49ers': 'https://www.pick6.club/SFLogo.png',
+    'Seattle Seahawks': 'https://www.pick6.club/SEALogo.png',
+    'Tampa Bay Buccaneers': 'https://www.pick6.club/TBLogo.png',
+    'Tennessee Titans': 'https://www.pick6.club/TENLogo.png',
+    'Washington Commanders': 'https://www.pick6.club/WASLogo.png'
 };
 
 // Injury team mapping
@@ -252,7 +252,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (storedUsername) {
         try {
             // Check time window first
-            const timeResponse = await fetch('/api/timewindows');
+            const timeResponse = await fetch('https://www.pick6.club/api/timewindows');
             if (!timeResponse.ok) throw new Error('Failed to fetch time windows.');
             
             const { thursdayDeadline, sundayDeadline } = await timeResponse.json();
@@ -344,7 +344,7 @@ async function populatePoolSelector() {
   
     try {
       // First check if we're in Thursday game time
-      const timeResponse = await fetch('/api/timewindows');
+      const timeResponse = await fetch('https://www.pick6.club/api/timewindows');
       if (!timeResponse.ok) throw new Error('Failed to fetch time windows.');
   
       const { thursdayDeadline, sundayDeadline } = await timeResponse.json();
@@ -356,7 +356,7 @@ async function populatePoolSelector() {
   
       // Fetch pools
       const response = await fetch(
-        `/pools/userPools/${encodeURIComponent(storedUsername)}`
+        `https://www.pick6.club/pools/userPools/${encodeURIComponent(storedUsername)}`
       );
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -388,7 +388,7 @@ async function populatePoolSelector() {
   
         // Fetch and store last week's picks for single pool
         const lastWeekResponse = await fetch(
-          `/api/getLastWeekPicks/${encodeURIComponent(
+          `https://www.pick6.club/api/getLastWeekPicks/${encodeURIComponent(
             storedUsername
           )}/${encodeURIComponent(classicPools[0].name)}`
         );
@@ -414,7 +414,7 @@ async function populatePoolSelector() {
           classicPools.map(async (pool) => {
             try {
               const response = await fetch(
-                `/api/getPicks/${storedUsername}/${pool.name}`
+                `https://www.pick6.club/api/getPicks/${storedUsername}/${pool.name}`
               );
               const data = await response.json();
               return {
@@ -463,7 +463,7 @@ async function populatePoolSelector() {
             classicPools.map(async (pool) => {
               try {
                 const response = await fetch(
-                  `/api/getLastWeekPicks/${encodeURIComponent(
+                  `https://www.pick6.club/api/getLastWeekPicks/${encodeURIComponent(
                     storedUsername
                   )}/${encodeURIComponent(pool.name)}`
                 );
@@ -804,12 +804,12 @@ function setupEventListeners() {
 
                 if (selectedPool === 'all') {
                     // For "all" view, ONLY get first pool's picks since we know they match
-                    const poolsResponse = await fetch(`/pools/userPools/${encodeURIComponent(storedUsername)}`);
+                    const poolsResponse = await fetch(`https://www.pick6.club/pools/userPools/${encodeURIComponent(storedUsername)}`);
                     const allPools = await poolsResponse.json();
                     const survivorPools = allPools.filter(pool => pool.mode === 'survivor');
                     
                     if (survivorPools.length > 0) {
-                        const response = await fetch(`/api/getPicks/${storedUsername}/${survivorPools[0].name}`);
+                        const response = await fetch(`https://www.pick6.club/api/getPicks/${storedUsername}/${survivorPools[0].name}`);
                         const data = await response.json();
                         
                         if (data.picks) {
@@ -821,7 +821,7 @@ function setupEventListeners() {
                     }
                 } else {
                     // For individual pool, fetch normally
-                    const response = await fetch(`/api/getPicks/${storedUsername}/${selectedPool}`);
+                    const response = await fetch(`https://www.pick6.club/api/getPicks/${storedUsername}/${selectedPool}`);
                     const data = await response.json();
                     
                     if (data.picks) {
@@ -833,7 +833,7 @@ function setupEventListeners() {
                 }
 
                 // Check for Thursday features
-                const timeResponse = await fetch('/api/timewindows');
+                const timeResponse = await fetch('https://www.pick6.club/api/timewindows');
                 if (timeResponse.ok) {
                     const { thursdayDeadline, sundayDeadline } = await timeResponse.json();
                     const now = getCurrentTimeInUTC4();
@@ -1058,7 +1058,7 @@ async function handlePoolChange(e) {
         }
 
         // Check if we're in Thursday game time
-        const timeResponse = await fetch('/api/timewindows');
+        const timeResponse = await fetch('https://www.pick6.club/api/timewindows');
         if (timeResponse.ok) {
             const { thursdayDeadline, sundayDeadline } = await timeResponse.json();
             const now = getCurrentTimeInUTC4();
@@ -1152,7 +1152,7 @@ async function fetchUserPicksAndRender(username, poolSelection) {
         }
 
         // Get current time window
-        const timeResponse = await fetch('/api/timewindows');
+        const timeResponse = await fetch('https://www.pick6.club/api/timewindows');
         const { thursdayDeadline, sundayDeadline } = await timeResponse.json();
         const now = getCurrentTimeInUTC4();
         const thursdayTime = new Date(thursdayDeadline);
@@ -1161,13 +1161,13 @@ async function fetchUserPicksAndRender(username, poolSelection) {
 
         if (poolSelection === 'all') {
             // Get all survivor pools
-            const poolsResponse = await fetch(`/pools/userPools/${encodeURIComponent(username)}`);
+            const poolsResponse = await fetch(`https://www.pick6.club/pools/userPools/${encodeURIComponent(username)}`);
             const allPools = await poolsResponse.json();
             const survivorPools = allPools.filter(pool => pool.mode === 'survivor');
 
             if (survivorPools.length > 0) {
                 // Just get picks from the first pool since we've already verified they match
-                const response = await fetch(`/api/getPicks/${username}/${survivorPools[0].name}`);
+                const response = await fetch(`https://www.pick6.club/api/getPicks/${username}/${survivorPools[0].name}`);
                 const data = await response.json();
                 
                 if (data.picks) {
@@ -1180,7 +1180,7 @@ async function fetchUserPicksAndRender(username, poolSelection) {
             }
         } else {
             // For individual pool, fetch normally
-            const response = await fetch(`/api/getPicks/${username}/${poolSelection}`);
+            const response = await fetch(`https://www.pick6.club/api/getPicks/${username}/${poolSelection}`);
             if (!response.ok) {
                 throw new Error(`Failed to fetch picks for pool ${poolSelection}`);
             }
@@ -1454,7 +1454,7 @@ function updateBetCell(option, isSelected) {
     }
 }
 async function submitToPool(poolName, data) {
-    const response = await fetch(`/api/savePicks/${storedUsername}/${poolName}`, {
+    const response = await fetch(`https://www.pick6.club/api/savePicks/${storedUsername}/${poolName}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -1476,7 +1476,7 @@ async function resetPicks() {
 
     try {
         // First check if we're in Thursday game time
-        const timeResponse = await fetch('/api/timewindows');
+        const timeResponse = await fetch('https://www.pick6.club/api/timewindows');
         if (!timeResponse.ok) throw new Error('Failed to fetch time windows.');
         
         const { thursdayDeadline, sundayDeadline } = await timeResponse.json();
@@ -1489,7 +1489,7 @@ async function resetPicks() {
         // Get current picks for the selected pool before resetting
         let currentPicks;
         if (selectedPool !== 'all') {
-            const response = await fetch(`/api/getPicks/${storedUsername}/${selectedPool}`);
+            const response = await fetch(`https://www.pick6.club/api/getPicks/${storedUsername}/${selectedPool}`);
             currentPicks = await response.json();
         }
 
@@ -1497,7 +1497,7 @@ async function resetPicks() {
             const confirmReset = confirm('Are you sure you want to reset all your picks? This cannot be undone.');
             
             if (confirmReset) {
-                const poolsResponse = await fetch(`/pools/userPools/${encodeURIComponent(storedUsername)}`);
+                const poolsResponse = await fetch(`https://www.pick6.club/pools/userPools/${encodeURIComponent(storedUsername)}`);
                 if (!poolsResponse.ok) throw new Error('Failed to fetch user pools');
                 
                 const allPools = await poolsResponse.json();
@@ -1506,7 +1506,7 @@ async function resetPicks() {
                 // Check which pools have picks
                 const poolsWithPicks = await Promise.all(classicPools.map(async pool => {
                     try {
-                        const response = await fetch(`/api/getPicks/${storedUsername}/${pool.name}`);
+                        const response = await fetch(`https://www.pick6.club/api/getPicks/${storedUsername}/${pool.name}`);
                         const data = await response.json();
                         return {
                             poolName: pool.name,
@@ -1562,7 +1562,7 @@ async function resetPicks() {
                             };
                         }
                         
-                        await fetch(`/api/savePicks/${storedUsername}/${pool.poolName}`, {
+                        await fetch(`https://www.pick6.club/api/savePicks/${storedUsername}/${pool.poolName}`, {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify(dataToSave)
@@ -1614,7 +1614,7 @@ async function resetPicks() {
                     };
                 }
 
-                await fetch(`/api/savePicks/${storedUsername}/${selectedPool}`, {
+                await fetch(`https://www.pick6.club/api/savePicks/${storedUsername}/${selectedPool}`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(dataToSave)
@@ -1654,7 +1654,7 @@ async function resetPicks() {
 // Remove the resetPoolPicks function since we're no longer using it
 
 async function resetPoolPicks(poolName) {
-    const response = await fetch(`/api/resetPicks/${storedUsername}/${poolName}`, {
+    const response = await fetch(`https://www.pick6.club/api/resetPicks/${storedUsername}/${poolName}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -1672,7 +1672,7 @@ async function resetPoolPicks(poolName) {
 // Weekly Picks Management
 async function loadWeeklyPicks() {
     try {
-        const response = await fetch('/api/getWeeklyPicks');
+        const response = await fetch('https://www.pick6.club/api/getWeeklyPicks');
         if (!response.ok) throw new Error('Failed to fetch weekly picks');
         
         betOptions = await response.json();
@@ -2092,7 +2092,7 @@ async function fetchAndDisplayMatchupInjuries(game, buttonElement) {
     injuryContainer.scrollIntoView({ behavior: 'smooth' });
 
     try {
-        const response = await fetch('/api/getInjuries');
+        const response = await fetch('https://www.pick6.club/api/getInjuries');
         if (!response.ok) throw new Error('Network response was not ok.');
         
         const injuries = await response.json();
@@ -2163,7 +2163,7 @@ async function checkCurrentTimeWindow() {
 
 async function checkCurrentTimeWindow() {
     try {
-        const response = await fetch('/api/timewindows');
+        const response = await fetch('https://www.pick6.club/api/timewindows');
         if (!response.ok) {
             throw new Error('Failed to fetch time windows.');
         }
@@ -2205,7 +2205,7 @@ async function handleDisplayInjuries() {
         const injuryContainer = document.getElementById('injuryContainer');
         const teamFilter = document.getElementById('teamFilter');
         
-        const response = await fetch('/api/getInjuries');
+        const response = await fetch('https://www.pick6.club/api/getInjuries');
         if (!response.ok) throw new Error('Network response was not ok.');
         
         const injuries = await response.json();
@@ -2246,7 +2246,7 @@ function mapInjuryTeamName(name) {
 // Initialize teamFilter change handler
 document.getElementById('teamFilter')?.addEventListener('change', async function() {
     try {
-        const response = await fetch('/api/getInjuries');
+        const response = await fetch('https://www.pick6.club/api/getInjuries');
         if (response.ok) {
             const injuries = await response.json();
             displayInjuries(injuries);
@@ -2260,7 +2260,7 @@ document.getElementById('teamFilter')?.addEventListener('change', async function
 async function fetchSurvivorPastPicks(username, poolName) {
     try {
         console.log(`Fetching survivor past picks for ${username} in pool ${poolName}`);
-        const response = await fetch(`/api/getSurvivorPastPicks/${encodeURIComponent(username)}/${encodeURIComponent(poolName)}`);
+        const response = await fetch(`https://www.pick6.club/api/getSurvivorPastPicks/${encodeURIComponent(username)}/${encodeURIComponent(poolName)}`);
         if (!response.ok) throw new Error('Failed to fetch survivor past picks');
         
         const data = await response.json();
@@ -2305,7 +2305,7 @@ selectBet = async function(option, isRendering = false) {
 
     // Check if current pool is a survivor pool
     try {
-        const poolsResponse = await fetch(`/pools/userPools/${encodeURIComponent(storedUsername)}`);
+        const poolsResponse = await fetch(`https://www.pick6.club/pools/userPools/${encodeURIComponent(storedUsername)}`);
         const pools = await poolsResponse.json();
         
         const currentPoolName = selectedPool === 'all' ? null : selectedPool;
@@ -2381,7 +2381,7 @@ document.head.appendChild(eliminationStyle);
 // Function to fetch survivor status for a user in a pool
 async function getSurvivorStatus(username, poolName) {
     try {
-        const response = await fetch(`/getSurvivorStatus/${encodeURIComponent(username)}/${encodeURIComponent(poolName)}`);
+        const response = await fetch(`https://www.pick6.club/getSurvivorStatus/${encodeURIComponent(username)}/${encodeURIComponent(poolName)}`);
         if (!response.ok) throw new Error('Failed to fetch survivor status');
         
         const data = await response.json();
@@ -2409,7 +2409,7 @@ async function updateUiForEliminationStatus(status) {
     
     try {
         // Always check the time window first
-        const timeResponse = await fetch('/api/timewindows');
+        const timeResponse = await fetch('https://www.pick6.club/api/timewindows');
         const { tuesdayStartTime, thursdayDeadline, sundayDeadline } = await timeResponse.json();
         const now = getCurrentTimeInUTC4();
         const tuesdayTime = new Date(tuesdayStartTime);
@@ -2501,7 +2501,7 @@ async function populatePoolSelector() {
   
     try {
         // First check if we're in Thursday game time
-        const timeResponse = await fetch('/api/timewindows');
+        const timeResponse = await fetch('https://www.pick6.club/api/timewindows');
         if (!timeResponse.ok) throw new Error('Failed to fetch time windows.');
   
         const { thursdayDeadline, sundayDeadline } = await timeResponse.json();
@@ -2512,7 +2512,7 @@ async function populatePoolSelector() {
         const isThursdayGameTime = now > thursdayTime && now < sundayTime;
   
         // Fetch pools
-        const response = await fetch(`/pools/userPools/${encodeURIComponent(storedUsername)}`);
+        const response = await fetch(`https://www.pick6.club/pools/userPools/${encodeURIComponent(storedUsername)}`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -2561,7 +2561,7 @@ async function populatePoolSelector() {
   
             // Fetch and store last week's picks for single pool
             const lastWeekResponse = await fetch(
-                `/api/getLastWeekPicks/${encodeURIComponent(
+                `https://www.pick6.club/api/getLastWeekPicks/${encodeURIComponent(
                     storedUsername
                 )}/${encodeURIComponent(survivorPools[0].name)}`
             );
@@ -2899,7 +2899,7 @@ async function blackOutSurvivorPicks() {
 
     // Check if current pool is a survivor pool
     try {
-        const poolsResponse = await fetch(`/pools/userPools/${encodeURIComponent(storedUsername)}`);
+        const poolsResponse = await fetch(`https://www.pick6.club/pools/userPools/${encodeURIComponent(storedUsername)}`);
         const pools = await poolsResponse.json();
         
         // Find current pool info
@@ -3049,12 +3049,12 @@ function setupEventListeners() {
                 // Fetch and render picks for the new pool
                 if (selectedPool === 'all') {
                     // For "all" view, ONLY get first pool's picks since we know they match
-                    const poolsResponse = await fetch(`/pools/userPools/${encodeURIComponent(storedUsername)}`);
+                    const poolsResponse = await fetch(`https://www.pick6.club/pools/userPools/${encodeURIComponent(storedUsername)}`);
                     const allPools = await poolsResponse.json();
                     const survivorPools = allPools.filter(pool => pool.mode === 'survivor');
                     
                     if (survivorPools.length > 0) {
-                        const response = await fetch(`/api/getPicks/${storedUsername}/${survivorPools[0].name}`);
+                        const response = await fetch(`https://www.pick6.club/api/getPicks/${storedUsername}/${survivorPools[0].name}`);
                         const data = await response.json();
                         
                         if (data.picks) {
@@ -3066,7 +3066,7 @@ function setupEventListeners() {
                     }
                 } else {
                     // For individual pool, fetch normally
-                    const response = await fetch(`/api/getPicks/${storedUsername}/${selectedPool}`);
+                    const response = await fetch(`https://www.pick6.club/api/getPicks/${storedUsername}/${selectedPool}`);
                     const data = await response.json();
                     
                     if (data.picks) {
@@ -3081,7 +3081,7 @@ function setupEventListeners() {
                 await blackOutSurvivorPicks();
 
                 // Check for Thursday features
-                const timeResponse = await fetch('/api/timewindows');
+                const timeResponse = await fetch('https://www.pick6.club/api/timewindows');
                 if (timeResponse.ok) {
                     const { thursdayDeadline, sundayDeadline } = await timeResponse.json();
                     const now = getCurrentTimeInUTC4();
@@ -3239,7 +3239,7 @@ async function resetPicks() {
 
     try {
         // First check if we're in Thursday game time
-        const timeResponse = await fetch('/api/timewindows');
+        const timeResponse = await fetch('https://www.pick6.club/api/timewindows');
         if (!timeResponse.ok) throw new Error('Failed to fetch time windows.');
         
         const { thursdayDeadline, sundayDeadline } = await timeResponse.json();
@@ -3252,7 +3252,7 @@ async function resetPicks() {
         // Get current picks for the selected pool before resetting
         let currentPicks;
         if (selectedPool !== 'all') {
-            const response = await fetch(`/api/getPicks/${storedUsername}/${selectedPool}`);
+            const response = await fetch(`https://www.pick6.club/api/getPicks/${storedUsername}/${selectedPool}`);
             currentPicks = await response.json();
         }
 
@@ -3260,7 +3260,7 @@ async function resetPicks() {
             const confirmReset = confirm('Are you sure you want to reset all your picks? This cannot be undone.');
             
             if (confirmReset) {
-                const poolsResponse = await fetch(`/pools/userPools/${encodeURIComponent(storedUsername)}`);
+                const poolsResponse = await fetch(`https://www.pick6.club/pools/userPools/${encodeURIComponent(storedUsername)}`);
                 if (!poolsResponse.ok) throw new Error('Failed to fetch user pools');
                 
                 const allPools = await poolsResponse.json();
@@ -3279,7 +3279,7 @@ async function resetPicks() {
                 // Check which active pools have picks
                 const poolsWithPicks = await Promise.all(activePools.map(async pool => {
                     try {
-                        const response = await fetch(`/api/getPicks/${storedUsername}/${pool.name}`);
+                        const response = await fetch(`https://www.pick6.club/api/getPicks/${storedUsername}/${pool.name}`);
                         const data = await response.json();
                         return {
                             poolName: pool.name,
@@ -3335,7 +3335,7 @@ async function resetPicks() {
                             };
                         }
                         
-                        await fetch(`/api/savePicks/${storedUsername}/${pool.poolName}`, {
+                        await fetch(`https://www.pick6.club/api/savePicks/${storedUsername}/${pool.poolName}`, {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify(dataToSave)
@@ -3387,7 +3387,7 @@ async function resetPicks() {
                     };
                 }
 
-                await fetch(`/api/savePicks/${storedUsername}/${selectedPool}`, {
+                await fetch(`https://www.pick6.club/api/savePicks/${storedUsername}/${selectedPool}`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(dataToSave)
@@ -3463,7 +3463,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (storedUsername) {
         try {
             // Check time window first
-            const timeResponse = await fetch('/api/timewindows');
+            const timeResponse = await fetch('https://www.pick6.club/api/timewindows');
             if (!timeResponse.ok) throw new Error('Failed to fetch time windows.');
             
             const { thursdayDeadline, sundayDeadline } = await timeResponse.json();

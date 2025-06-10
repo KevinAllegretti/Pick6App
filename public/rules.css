@@ -8,6 +8,7 @@ body {
     padding: 0;
     line-height: 1.6;
     font-size: 16px;
+       padding: 30px 0 0 0; /* Changed from padding: 0; to add top padding */
 }
 
 .container {
