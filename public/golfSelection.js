@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             showErrorMessage('Failed to load golf selection page. Please try again later.');
         }
     } else {
-        window.location.href = '/index.html';
+        window.location.href = '/homepage.html';
     }
 });
 
@@ -132,7 +132,7 @@ function hideLoadingState() {
 async function populateGolfPoolSelector() {
     try {
         // Fetch all pools for the user
-        const response = await fetch(`/pools/userPools/${encodeURIComponent(storedUsername)}`);
+        const response = await fetch(`https://www.pick6.club/pools/userPools/${encodeURIComponent(storedUsername)}`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -170,7 +170,7 @@ async function populateGolfPoolSelector() {
  */
 async function loadPoolState() {
     try {
-        const response = await fetch(`/api/getPoolState/${selectedPool}`);
+        const response = await fetch(`https://www.pick6.club/api/getPoolState/${selectedPool}`);
         if (!response.ok) {
             throw new Error('Failed to fetch pool state');
         }
@@ -257,7 +257,7 @@ function clearStatusMessages() {
  */
 async function fetchGolfers() {
     try {
-        const response = await fetch('/api/getTournamentGolfers');
+        const response = await fetch('https://www.pick6.club/api/getTournamentGolfers');
         if (!response.ok) {
             throw new Error('Failed to fetch golfers');
         }
@@ -275,7 +275,7 @@ async function fetchGolfers() {
  */
 async function fetchUserPicks() {
     try {
-        const response = await fetch(`/api/getUserGolfPicks/${storedUsername}/${selectedPool}`);
+        const response = await fetch(`https://www.pick6.club/api/getUserGolfPicks/${storedUsername}/${selectedPool}`);
         if (!response.ok) {
             throw new Error('Failed to fetch user golf picks');
         }
@@ -294,7 +294,7 @@ async function fetchUserPicks() {
  */
 async function fetchAllPoolPicks() {
     try {
-        const response = await fetch(`/api/getAllGolfPicks/${selectedPool}`);
+        const response = await fetch(`https://www.pick6.club/api/getAllGolfPicks/${selectedPool}`);
         if (!response.ok) {
             throw new Error('Failed to fetch all golf picks');
         }
@@ -310,7 +310,7 @@ async function fetchAllPoolPicks() {
 
 async function fetchDraftState() {
     try {
-        const response = await fetch(`/api/getDraftState/${selectedPool}`);
+        const response = await fetch(`https://www.pick6.club/api/getDraftState/${selectedPool}`);
         if (!response.ok) {
             throw new Error('Failed to fetch draft state');
         }
@@ -625,7 +625,7 @@ async function handleGolferConfirmation() {
         };
 
         // Submit the pick
-        const response = await fetch(`/api/submitGolfPick/${storedUsername}/${selectedPool}`, {
+        const response = await fetch(`https://www.pick6.club/api/submitGolfPick/${storedUsername}/${selectedPool}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -835,7 +835,7 @@ function startDraftStatePolling() {
                 const prevState = {...currentPoolState};
                 
                 // Fetch updated pool state
-                const stateResponse = await fetch(`/api/getPoolState/${selectedPool}`);
+                const stateResponse = await fetch(`https://www.pick6.club/api/getPoolState/${selectedPool}`);
                 if (stateResponse.ok) {
                     const state = await stateResponse.json();
                     const newState = {
@@ -1114,7 +1114,7 @@ function startDraftStatePolling() {
                 const prevState = {...currentPoolState};
                 
                 // Fetch updated pool state
-                const stateResponse = await fetch(`/api/getPoolState/${selectedPool}`);
+                const stateResponse = await fetch(`https://www.pick6.club/api/getPoolState/${selectedPool}`);
                 if (stateResponse.ok) {
                     const state = await stateResponse.json();
                     const newState = {
@@ -1449,7 +1449,7 @@ async function autoSelectBestGolfer() {
         };
         
         // Submit the pick
-        const response = await fetch(`/api/submitGolfPick/${currentUser}/${selectedPool}`, {
+        const response = await fetch(`https://www.pick6.club/api/submitGolfPick/${currentUser}/${selectedPool}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
