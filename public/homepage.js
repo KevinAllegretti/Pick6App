@@ -3,6 +3,16 @@
 const vendingSpotlightIntervals = new Map();
 const currentVendingModes = new Map();
 const vendingSpotlightDataCache = new Map();// Call this function when the page loads
+
+// Add this helper function at the top of your homepage.js
+function getFullImageUrl(imagePath) {
+    if (!imagePath || imagePath.startsWith('http')) {
+        return imagePath; // Already a full URL or empty
+    }
+    // Remove leading slash if present and add base URL
+    const cleanPath = imagePath.startsWith('/') ? imagePath.substring(1) : imagePath;
+    return `https://www.pick6.club/${cleanPath}`;
+}
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize the playoff picks panel
     initializePlayoffPicksPanel();
@@ -2899,7 +2909,7 @@ function createSurvivorPlayerRow(memberData, currentUsername) {
     } else {
         playerRow.innerHTML = `
             <div class="survivor-player-user">
-                <div class="survivor-profile-pic" style="background-image: url('${memberData.profilePic || 'Default.png'}')"></div>
+              <div class="survivor-profile-pic" style="background-image: url('https://www.pick6.club/${memberData.profilePic || 'Default.png'}')"></div>
                 <span class="player-username">${memberData.username}</span>
             </div>
             <div class="survivor-player-picks"></div>
@@ -4060,14 +4070,14 @@ const titleElement = spotlightElement.querySelector('[class*="title-header-bar"]
     const pointsClass = dataToShow.points > 0 ? 'positive-points' : 'negative-points';
     
     // Update content
-    contentElement.innerHTML = `
-        <div class="vending-profile-pic" style="background-image: url('${profilePicture}')"></div>
-        <div class="vending-user-info">
-            <div class="vending-username">${dataToShow.username}</div>
-            <div class="vending-points ${pointsClass}">${pointsDisplay} pts</div>
-        </div>
-    `;
-    
+  // Update content
+contentElement.innerHTML = `
+    <div class="vending-profile-pic" style="background-image: url('${getFullImageUrl(profilePicture)}')"></div>
+    <div class="vending-user-info">
+        <div class="vending-username">${dataToShow.username}</div>
+        <div class="vending-points ${pointsClass}">${pointsDisplay} pts</div>
+    </div>
+`;
     // Add animation class for smooth transitions
     contentElement.classList.add('vending-update');
     setTimeout(() => {
@@ -5335,7 +5345,7 @@ function createMatchElement(match, poolName, champion, currentWeek, isLastWeek) 
       : parseFloat(displayPoints).toFixed(1);
     
     playerSlot.innerHTML = `
-      <div class="playoff-profile-pic" style="background-image: url('${player.profilePic || 'Default.png'}')"></div>
+     <div class="playoff-profile-pic" style="background-image: url('${getFullImageUrl(player.profilePic || 'Default.png')}')"></div>
       <div class="player-seed">${player.seed}</div>
       <div class="playoff-player-info">
         <div class="playoff-player-username">${player.username}</div>
