@@ -181,7 +181,6 @@ document.getElementById('registration-form').addEventListener('submit', function
 });
 
 */
-
 // Password management system
 class PasswordManager {
     constructor() {
@@ -205,7 +204,7 @@ class PasswordManager {
         
         // Create checkbox container
         const checkboxDiv = document.createElement('div');
-        checkboxDiv.style.cssText = 'margin-bottom: 15px; display: flex; align-items: center; gap: 8px;';
+        checkboxDiv.className = 'remember-checkbox';
         
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
@@ -215,7 +214,6 @@ class PasswordManager {
         const label = document.createElement('label');
         label.setAttribute('for', 'remember-me');
         label.textContent = 'Remember my login';
-        label.style.cssText = 'font-size: 14px; color: #666; cursor: pointer;';
         
         checkboxDiv.appendChild(checkbox);
         checkboxDiv.appendChild(label);
@@ -286,17 +284,9 @@ class PasswordManager {
         if (!savedCredentialsDiv) {
             savedCredentialsDiv = document.createElement('div');
             savedCredentialsDiv.id = 'saved-credentials';
-            savedCredentialsDiv.style.cssText = `
-                margin-bottom: 20px;
-                padding: 15px;
-                background: #f8f9fa;
-                border-radius: 8px;
-                border: 1px solid #e9ecef;
-            `;
             
             const title = document.createElement('h4');
             title.textContent = 'Saved Accounts:';
-            title.style.cssText = 'margin: 0 0 10px 0; color: #333; font-size: 14px; font-weight: 600;';
             
             const credentialsList = document.createElement('div');
             credentialsList.id = 'credentials-list';
@@ -315,34 +305,22 @@ class PasswordManager {
 
         credentials.forEach(cred => {
             const credDiv = document.createElement('div');
-            credDiv.style.cssText = `
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 8px 12px;
-                cursor: pointer;
-                border-radius: 4px;
-                margin-bottom: 5px;
-                transition: background-color 0.2s ease;
-                background: white;
-                border: 1px solid #dee2e6;
-            `;
+            credDiv.className = 'saved-credential';
             
-            credDiv.innerHTML = `
-                <span style="font-weight: 500; color: #333;">${cred.username}</span>
-                <span style="color: #dc3545; cursor: pointer; font-size: 16px; font-weight: bold;" onclick="passwordManager.deleteCredential('${cred.username}')">&times;</span>
-            `;
+            const usernameSpan = document.createElement('span');
+            usernameSpan.className = 'credential-username';
+            usernameSpan.textContent = cred.username;
             
-            // Add hover effect
-            credDiv.addEventListener('mouseenter', () => {
-                credDiv.style.backgroundColor = '#e9ecef';
-            });
-            credDiv.addEventListener('mouseleave', () => {
-                credDiv.style.backgroundColor = 'white';
-            });
+            const deleteSpan = document.createElement('span');
+            deleteSpan.className = 'credential-delete';
+            deleteSpan.textContent = '×';
+            deleteSpan.onclick = () => this.deleteCredential(cred.username);
+            
+            credDiv.appendChild(usernameSpan);
+            credDiv.appendChild(deleteSpan);
             
             credDiv.addEventListener('click', (e) => {
-                if (!e.target.onclick) {  // Don't fill if clicking delete button
+                if (!e.target.classList.contains('credential-delete')) {
                     this.fillLoginForm(cred.username, cred.password);
                 }
             });
@@ -382,50 +360,6 @@ document.getElementById('show-login').addEventListener('click', function() {
     console.log('Register form class:', document.querySelector('.form.register').className);
     console.log('Login form class:', document.querySelector('.form.login').className);
 });
-
-/*
-document.addEventListener('DOMContentLoaded', function() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const status = urlParams.get('status');
-    
-    if (status === 'success') {
-        alert('Email verified successfully! You can now log in.');
-    } else if (status === 'failed') {
-        alert('Email verification failed. Please try again or contact support.');
-    }
-});*/
-
-// Handle login form submission
-/*
-document.getElementById('login-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-    var formData = new FormData(this);
-    var object = {};
-    formData.forEach(function(value, key){
-        object[key] = value;
-    });
-    var json = JSON.stringify(object);
-
-    fetch('https://www.pick6.club/users/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: json,
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.error) {
-            alert(data.message); // Show error message
-        } else if (data.redirect) {
-            window.location.href = data.redirect; // Perform redirection
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('An error occurred during the login process. Please try again.');
-    });
-});*/
 
 // Handle login form submission - ENHANCED VERSION
 document.getElementById('login-form').addEventListener('submit', function(event) {
