@@ -6787,12 +6787,63 @@ function addSurvivorPoolLockControl(poolWrapper, isAdmin, poolName, isLocked) {
 
 // First, let's add the new mode card to the pool manager UI
 // Function to add Golf mode card to the pool manager
+/*function addGolfModeCard() {
+    // Find the mode selection container
+    const modeSelection = document.querySelector('.mode-selection');
+    
+    if (!modeSelection) {
+        console.error('Mode selection container not found');
+        return;
+    }
+    
+    // Create the golf mode card as a button (matching your existing cards)
+    const golfModeCard = document.createElement('button');
+    golfModeCard.className = 'mode-card';
+    golfModeCard.setAttribute('data-mode', 'golf');
+    
+    // Add the title (matching your existing cards' simple structure)
+    golfModeCard.innerHTML = `
+        <div class="mode-title">Golf Pick 6</div>
+    `;
+    
+    // Add the click handler (similar to your existing cards)
+    golfModeCard.addEventListener('click', function() {
+        // Remove active class from all cards
+        document.querySelectorAll('.mode-card').forEach(card => {
+            card.classList.remove('active');
+        });
+        
+        // Add active class to this card
+        golfModeCard.classList.add('active');
+        
+        // Hide playoffs toggle since it's only for classic mode
+        const playoffsToggle = document.getElementById('playoffs-toggle');
+        if (playoffsToggle) {
+            playoffsToggle.classList.add('hidden');
+            // Reset checkbox when switching away from classic
+            const checkbox = document.getElementById('hasPlayoffs');
+            if (checkbox) checkbox.checked = false;
+        }
+    });
+    
+    // Add the golf mode card to the mode selection container
+    modeSelection.appendChild(golfModeCard);
+}*/
+
+// Function to add Golf mode card to the pool manager
 function addGolfModeCard() {
     // Find the mode selection container
     const modeSelection = document.querySelector('.mode-selection');
     
     if (!modeSelection) {
         console.error('Mode selection container not found');
+        return;
+    }
+    
+    // Check if golf mode card already exists
+    const existingGolfCard = modeSelection.querySelector('.mode-card[data-mode="golf"]');
+    if (existingGolfCard) {
+        console.log('Golf mode card already exists, skipping creation');
         return;
     }
     
