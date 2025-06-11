@@ -1971,6 +1971,7 @@ label {
     z-index: 1000;
     backdrop-filter: blur(10px);
     padding: 0.4rem;
+    padding: 30px 0 0 0; /* Changed from padding: 0; to add top padding */
   }
   .nav-container {
     width: 100%;
