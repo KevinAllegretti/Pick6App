@@ -1,5 +1,8 @@
 #!/bin/sh
-echo "Running Capacitor sync..."
+echo "Installing npm dependencies..."
 npm install
+
+echo "Running Capacitor sync..."
 npx cap sync ios
-echo "Capacitor sync completed"
+
+echo "Build script completed successfully"
