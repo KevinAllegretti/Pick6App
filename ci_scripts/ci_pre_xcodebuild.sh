@@ -1,3 +1,3 @@
 #!/bin/sh
-cd ios/App
-pod install
+npm install
+npx cap sync ios
