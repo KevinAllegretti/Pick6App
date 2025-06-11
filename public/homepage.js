@@ -1158,9 +1158,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 throw new Error('Network response was not ok.');
             }
             const userData = await response.json();
-          const fullProfilePicUrl = profilePicSrc.startsWith('http') ? profilePicSrc : `https://www.pick6.club/${profilePicSrc}`;
-document.querySelector('.profile-icon').src = fullProfilePicUrl;
-document.querySelector('.profile-icon-center').src = fullProfilePicUrl;
+        const profilePic = userData.profilePicture || 'Default.png';
+const fullProfilePicUrl = profilePic.startsWith('http') ? profilePic : `https://www.pick6.club/${profilePic}`;
+
+const profileIconMain = document.querySelector('.profile-icon');
+const profileIconCenter = document.querySelector('.profile-icon-center');
+
+if (profileIconMain) {
+    profileIconMain.src = fullProfilePicUrl;
+}
+if (profileIconCenter) {
+    profileIconCenter.src = fullProfilePicUrl;
+}
             const poolResponse = await fetch(`https://www.pick6.club/pools/userPoolInfo/${username}`);
             if (!poolResponse.ok) {
                 throw new Error('Network response was not ok.');
@@ -2451,7 +2460,7 @@ function createPlayerRow(memberData, isAdmin, totalMembers) {
                 }*/
      playerRow.innerHTML = `
          <div class="player-user" ${playerUserStyle}>
-             <div class="player-profile-pic" style="background-image: url('www.pick6.club/${memberData.profilePic}')"></div>
+             <div class="player-profile-pic" style="background-image: url('https://www.pick6.club/${memberData.profilePic}')"></div>
              <span class="player-username">${memberData.username}</span>
          </div>
          <div class="player-rank">${memberData.rank}</div>
