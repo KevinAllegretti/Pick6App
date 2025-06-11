@@ -2451,7 +2451,7 @@ function createPlayerRow(memberData, isAdmin, totalMembers) {
                 }*/
      playerRow.innerHTML = `
          <div class="player-user" ${playerUserStyle}>
-             <div class="player-profile-pic" style="background-image: url('${memberData.profilePic}')"></div>
+             <div class="player-profile-pic" style="background-image: url('www.pick6.club/${memberData.profilePic}')"></div>
              <span class="player-username">${memberData.username}</span>
          </div>
          <div class="player-rank">${memberData.rank}</div>
