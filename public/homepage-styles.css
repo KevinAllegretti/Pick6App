@@ -53,6 +53,7 @@ body {
     box-shadow: 0 0 5px #0fa5c7, 0 0 10px #0fa5c7, 0 0 15px #0fa5c7; /* This creates the neon glow */
     cursor: pointer;
     z-index: 100; /* Make sure it's above other elements */
+        padding: 40px 0 0 0; /* Changed from padding: 0; to add top padding */
 }
 
 
@@ -1981,7 +1982,6 @@ label {
     align-items: center;
     gap: 0.3rem; /* Reduced gap */
     padding: 0 0.5rem;
-      padding: 40px 0 0 0; /* Changed from padding: 0; to add top padding */
   }
   .nav-left {
     flex: 0 0 auto; /* Don't grow, don't shrink, auto basis */
@@ -2010,7 +2010,6 @@ label {
   border-radius: 50px;
   transition: background-color 0.3s ease;
   min-width: fit-content; /* Prevent shrinking below content */
-    padding: 40px 0 0 0; /* Changed from padding: 0; to add top padding */
 }
 
     /*
