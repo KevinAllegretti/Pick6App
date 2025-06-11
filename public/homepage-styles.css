@@ -1971,7 +1971,7 @@ label {
     z-index: 1000;
     backdrop-filter: blur(10px);
     padding: 0.4rem;
-    padding: 30px 0 0 0; /* Changed from padding: 0; to add top padding */
+    padding: 40px 0 0 0; /* Changed from padding: 0; to add top padding */
   }
   .nav-container {
     width: 100%;
@@ -1981,6 +1981,7 @@ label {
     align-items: center;
     gap: 0.3rem; /* Reduced gap */
     padding: 0 0.5rem;
+      padding: 40px 0 0 0; /* Changed from padding: 0; to add top padding */
   }
   .nav-left {
     flex: 0 0 auto; /* Don't grow, don't shrink, auto basis */
@@ -2009,6 +2010,7 @@ label {
   border-radius: 50px;
   transition: background-color 0.3s ease;
   min-width: fit-content; /* Prevent shrinking below content */
+    padding: 40px 0 0 0; /* Changed from padding: 0; to add top padding */
 }
 
     /*
