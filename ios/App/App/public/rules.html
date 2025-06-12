@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rules</title>
+    <link rel="stylesheet" href="rules.css"> <!-- replace with your CSS file path -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.png" type="image/png">
+
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+</head>
+<body>
+    <div class="back-button-container">
+        <a href="index.html" class="back-button">Back to Homepage</a>
+    </div>
+    <div class="container">
+       <!-- <h1>How To Play Pick 6</h1>-->
+        <div class="rules-container">
+            <div class="rule-box">
+                <h2>How To Play</h2>
+                <p>Pick 6 is a season-long competition where users compete against their group trying to accumulate as many points as possible.
+                </p>
+                <p>Points are accumulated by picking a team's spread or moneyline for that given week.</p>
+                   <p>Can make up to 6 selections each week with an optional 7th pick.
+                </p>
+                <p>Certain picks have different point values.
+                </p>
+            </div>
+
+            <div class="rule-box">
+                <h2>Point System</h2>
+                <ul>
+                    <li> <span class = "blue-highlight">Push</span>: <span class="yellow-highlight">+0.5 pts</span></li>
+                    <li><span class = "blue-highlight">Favorited moneyline win</span>: <span class="green-highlight">+1 pt</span> (points change to <span class="yellow-highlight">+0.5 pts</span> if ML is -250 or higher)</li>
+                    <li><span class = "blue-highlight">Spread win</span>: <span class="green-highlight">+1.5 pts</span></li>
+                    <li><span class = "blue-highlight">Underdog moneyline win</span>: <span class="green-highlight">+2 pts</span> (points change to <span class="green-highlight">+2.5 pts</span> if ML is +250 or higher and <span class="green-highlight">+4 pts</span> if ML is +400 and higher)</li>
+                    <li>-   Points will be awarded after each slate of games</li>
+                </ul>
+                <div class="point-legend-container">
+                    <img src='pointLegend.png' class="point-legend" />
+                </div>
+            </div>
+
+            <div class="rule-box">
+                <h2>Immortal Lock</h2>
+                <p>An optional 7th pick per week that can either gain users <span class="green-highlight">+1 pt</span> with a win or <span class="red-highlight">-2 pts</span> with a loss</p>
+                <p>A spread or moneyline of any value will not alter the amount of points that can be gained or lost</p>
+                <p>Ex: -400 ML earns the same amount of points as a +400 ML and no matter the line, a loss will always subtract 2 points</p>
+                <p>A user must toggle on the “Set Immortal Lock” button in order to select an immortal lock for that week </p>
+                <p>The toggle button can be found in the “Pick Selection Page” and the immortal lock will show up as the users 7th pick</p>
+                <div class="immortal-lock-container">
+                    <img src='immortalLock.png' class="immortal-lock" />
+                </div>
+            </div>
+
+            <div class="rule-box">
+                <h2>Bi-Weekly Selections</h2>
+                <p>When making selections keep in mind that the same pick can not be used in consecutive weeks</p>
+                <p>Meaning that users can not select the Bengals spread 2 weeks in a row</p>
+                   <p> If a user selects the Bengals spread in week 5, that selection will be unavailable until week 7. However, Bengals Moneyline will be available for selection in week 6 and vice versa</p>
+            </div>
+        
+          
+        
+            <div class="rule-box">
+                <h2>Deadlines</h2>
+                <p>Picks open each week at 12am on Tuesday and close at 7pm on Thursday and can be made on the “Pick Selection Page”</p>
+                <p>At 7pm on Thursday the “Pick Selection Page” will lock, selections will not be allowed and can not be altered. At that time all user selections for that week will be visible to the rest of the group</p>
+                <div class="timeline-container">
+                    <div class="timeline">
+                        <div class="peg" style="left: 0%;">
+                            <span class="time-label">12:00 AM<br>Tue</span>
+                        </div>
+                        <div class="peg" style="left: 32.14%;">
+                            <span class="time-label">7:00 PM<br>Thu</span>
+                        </div>
+                        <div class="peg" style="left: 100%;">
+                            <span class="time-label">12:00 AM<br>Tue</span>
+                        </div>
+                    </div>
+                    <div class="period-labels">
+                        <span class="period-label" style="left: 16.07%; transform: translateX(-50%);">Pick Time</span>
+                        <span class="period-label" style="left: 66.07%; transform: translateX(-50%);">Game Time</span>
+                    </div>
+                </div>
+  
+            </div>
+            
+            <div class="rule-box">
+                <h2>Pool Manager</h2>
+                <p>In the Pool Manager, users can create new pools or join existing public and private ones.</p>
+  
+                <p><strong>Pool Creation Options:</strong> When creating a pool, users can set it to <strong>Public</strong> (open to all) or <strong>Private</strong>. Private pools require setting a password (Note: Passwords are case sensitive!). Users must also choose the game mode: <strong>Classic</strong> or <strong>Survivor</strong>. For Classic mode pools only, there is an option to enable Playoffs.</p>
+  
+                <div class="create-pool-container">
+                    <img src='createPool.png' class="create-pool" />
+                </div>
+  
+                <p><strong>Classic Mode Playoffs (Optional):</strong></p>
+                <p>If the playoff option is enabled for a Classic pool, a head-to-head (h2h) bracket competition will begin in Week 14.</p>
+                <p>The top 10 users in the pool, seeded based on their rankings at the end of Week 13, will qualify for the bracket.</p>
+                <p>For users who do not qualify for the playoffs, their regular season effectively ends after Week 13, but they can still watch the action unfold.</p>
+                <p>The playoffs continue through the subsequent weeks, concluding at the end of Week 17.</p>
+                <p><em>Requirement: The playoff feature can only be enabled for pools containing 6 or more users.</em></p>
+  
+                <p><strong>Other Pool Management:</strong> Pool Admins have the capability to delete the pools they manage. All users are provided with the option to leave any pool they have previously joined.</p>
+  
+                <p><strong>Homepage Order:</strong> The Pool Manager also allows users to reorder how their joined pools are displayed on their homepage. This can be done by clicking the up and down arrows located next to each pool name within the manager.</p>
+  
+                <div class="arrow-container">
+                    <img src='arrow.png' class="arrow" />
+                </div>
+            </div>
+            <div class="survivor-rule-box">
+                <h3>Survivor Mode</h3>
+                <p>Pick 6's Survivor Mode is a high-stakes, elimination-style competition separate from the classic points-based game. The objective is simple: the user must survive longer than everyone else in their pool.</p>
+                <p>Each week, the user must select exactly <strong>one</strong> pick that they believe will win outright (straight up, ignoring the point spread).</p>
+                <p>If the pick the user selects wins, they advance to the next week. If the pick the user selects loses or ties, they are eliminated from the Survivor pool for the season.</p>
+                <div class="elim-container">
+                    <img src='elim.png' class="elim" />
+                </div>
+                <p><strong>A user's pick can only be used ONCE throughout the entire season.</strong> For example, if a user picks the Chiefs in Week 1, they cannot pick them again in any subsequent week for the rest of the season in that specific Survivor pool.</p>
+                <div class="survivor-prev-container">
+                    <img src='survivorPrev.png' class="survivor-prev" />
+                </div>
+                <p>The last user remaining who has not been eliminated wins the Survivor pool.</p>
+                <P>There is a locking feature at the top of the pool for admins to prevent any other users from joining the pool, regardless of if it's public or private. While that is toggled, it will be impossible for other users to join.</P>
+                <p>This is implemented to ensure the survivor pool cannot be infiltrated after the group decides when to start.</p>
+                <div class="lock-container">
+                    <img src='lock.png' class="lock" />
+                </div>
+                <p>Upon joining or creating a survivor pool, the "Survivor Selection Page" button will appear on the top of the user's homepage. This page is specifically for making their weekly Survivor pick, separate from the classic Pick 6 selection page.</p>
+                <div class="sps-container">
+                    <img src='SPS.png' class="sps" />
+                </div>
+                <p>Deadlines for making their Survivor pick each week are the same as the classic mode (locking Thursday at 7 PM).</p>
+            </div>
+
+
+
+        </div>
+    </div>
+</body>
+</html>

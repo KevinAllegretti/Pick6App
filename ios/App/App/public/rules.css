@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #0a0f22;
+    color: #33d9ff;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 2em 0;
+    border-radius: 10px;
+    color: #e0e0e0;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.8em;
+    text-align: center;
+    color: #33d9ff;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(51, 217, 255, 0.5);
+}
+
+.rules-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em 0;
+}
+
+.rule-box {
+    background: linear-gradient(to bottom right, #1a1a2e, #16213e);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    width: 80%;
+    color: #f5f5f5;
+    margin: 10px 0;
+    text-align: left;
+}
+
+h2 {
+    font-size: 1.8em;
+    color: #33d9ff;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(51, 217, 255, 0.5);
+}
+
+.timeline-container {
+    position: relative;
+    margin: 20px 0;
+    height: 100px; /* Increased height to accommodate labels */
+    width: 80%;
+    margin-left: 10%;
+}
+
+.timeline {
+    position: relative;
+    height: 10px;
+    background: linear-gradient(135deg, #33d9ff 0%, #0099CC 100%);
+    top: 50px; /* Adjusted to align with pegs */
+}
+
+.peg {
+    position: absolute;
+    bottom: 0px; /* Align peg to touch the timeline */
+    width: 10px; /* Made pegs thicker */
+    height: 50px; /* Height of the pegs */
+    background: linear-gradient(135deg, #33d9ff 0%, #0099CC 100%);
+    text-align: center;
+    font-size: 0.8em;
+    color: #f5f5f5;
+    text-shadow: 0 0 5px rgba(51, 217, 255, 0.5);
+}
+
+.time-label {
+    position: absolute;
+    bottom: -40px; /* Positioning the labels underneath the bar */
+    width: 60px;
+    transform: translateX(-50%);
+    font-size: 1em; /* Increased font size for visibility */
+    text-align: center;
+    color: #33d9ff; /* Added color for better visibility */
+    text-shadow: 0 0 10px rgba(51, 217, 255, 0.5);
+}
+
+.period-labels {
+    position: absolute;
+    top: -10px; /* Adjusted to move labels above the timeline */
+    width: 100%;
+    text-align: center;
+    color: #33d9ff;
+    font-weight: bold;
+}
+
+.period-label {
+    position: absolute;
+    font-size: 1.2em; /* Increased font size for visibility */
+    text-shadow: 0 0 10px rgba(51, 217, 255, 0.5);
+    transform: translateX(-50%); /* Center the labels horizontally */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+
+
+    .timeline-container {
+        height: 14vw;
+    }
+
+    .timeline {
+        height: 1.4vw;
+        top: 6vw;
+    }
+
+    .peg {
+        width: 1.4vw;
+        height: 6vw;
+    }
+
+    .time-label {
+        bottom: -5vw;
+        width: 7vw;
+        font-size: 1.5vw;
+    }
+
+    .period-label {
+        font-size: 1.9vw;
+    }
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+/* Updated color highlights with more sophisticated tones */
+.green-highlight {
+    color: #33ff57;
+    font-weight: bold;
+}
+
+.red-highlight {
+    color: #ff4d4d;
+    font-weight: bold;
+}
+
+.yellow-highlight {
+    color: #ffff4d;
+    font-weight: bold;
+}
+
+.blue-highlight {
+    color: #33d9ff;
+    font-weight: bold;
+}
+/* Refined back button design with silver undertones */
+.back-button-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 12px 25px;
+    margin: 10px auto;
+    text-align: center;
+    background: #121212;
+    color: #00ccff;
+    text-decoration: none;
+    border-radius: 50px;
+    border: 2px solid #00ccff;
+    transition: background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0px 4px 15px rgba(0, 204, 255, 0.4);
+}
+
+.back-button:hover {
+    background-color: #00ccff;
+    color: #121212;
+    box-shadow: 0px 6px 20px rgba(0, 204, 255, 0.6);
+    transition: background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+.colored-underline {
+    text-decoration: underline;
+    text-decoration-color:  #33d9ff; 
+    text-decoration-thickness: 2px;
+  }
+
+  .profile-panel-container, .pool-manager-pic-container, .rule-book-container, .schedule-container, .pool-pic-container, .Makepicks-pic-container,.chat-pic-container,
+  .profile-panel-other-container, .icon-container, .top-picks-container,
+  .game-container, .injuries, .point-legend-container, .immortal-lock-container, .arrow-container, .create-pool-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+  }
+
+  .profile-panel-pic, .pool-manager-pic, .pool-pic, .Makepicks-pic, .chat-pic,
+  .profile-panel-other-pic, .icon-pic, .top-picks,
+  .game-container-pic, .injuries-pic, .point-legend, .immortal-lock, .arrow, .create-pool {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      border: 2px solid #00ccff;
+      border-radius: 8px;
+  }
+  
+  
+.survivor-prev-container, .elim-container, .sps-container, .lock-container{display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+  .survivor-prev{
+      width: 100%;
+      max-width: 120px;
+      height: auto;
+      border: 2px solid #d4af37;
+      border-radius: 8px;
+  }
+
+  .elim , .lock{
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    border: 2px solid #d4af37;
+    border-radius: 8px;
+}
+
+.sps {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    border: 2px solid #d4af37;
+    border-radius: 8px;
+}
+  .survivor-rule-box {
+    background: linear-gradient(
+        145deg,
+        #1b0a13 0%,
+        #600029 50%,
+        #1d1e2a 100%
+      );
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    width: 80%;
+    color: #f5f5f5;
+    margin: 10px 0;
+    text-align: left;
+}
+
+
+h3 {
+    font-size: 1.8em;
+    color: #d4af37;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(255, 235, 51, 0.555);
+}

@@ -1,0 +1,133 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Noto Sans', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #040d21; /* Dark blue background */
+}
+
+.container {
+    max-width: 300px; /* Smaller container for shorter inputs */
+    min-height: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+
+.Logo img {
+    width: 300px;
+    height: 300px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #CCD6F6;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.card {
+    width: 100%;
+    padding: 25px;
+    border-radius: 10px;
+    background: #112240;
+    box-shadow: 0 4px 20px rgba(0, 247, 255, 0.25);
+    box-sizing: border-box; /* ensures padding doesn't affect the total width */
+}
+
+.input-field input {
+    width: calc(100% + 30px); /* accounts for padding and border */
+    height: 45px; /* increased height */
+    padding: 5px 15px;
+    background: #233554;
+    border: 2px solid #33d9ff; /* Lighter green border */
+    border-radius: 5px;
+    color: #CCD6F6;
+    font-size: 14px;
+    box-sizing: border-box; /* ensures padding doesn't affect the total width */
+}
+
+
+.input-field input::placeholder {
+    color: #8892B0;
+}
+
+.input-field input:focus {
+    border-color: #33d9ff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(50, 205, 50, 0.2);
+}
+
+.input-field {
+    position: relative;
+    height: 45px; /* Height of input fields */
+    width: calc(100% - 30px); /* accounts for padding and borders */
+    margin-bottom: 15px; /* Space between input fields */
+    box-sizing: border-box;
+}
+
+.action {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the button horizontally */
+    margin-top: 20px; /* Space above the action section */
+}
+
+.action button {
+    width: 100%; /* Full width of the action container */
+    height: 45px;
+    margin-top: 10px;
+    padding: 15px 0; /* Taller button for a more prominent look */
+    background-color: #33d9ff;
+    color: #0A192F;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.action button:hover {
+    background-color: #33b4ff;
+}
+
+.form-link {
+    text-align: center;
+    margin-top: 20px;
+    color: #CCD6F6;
+}
+
+.form-link a {
+    color: #33d9ff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.form-link a:hover {
+    color: #33b4ff;
+}
+
+.form {
+    display: none;
+}
+
+.form.active {
+    display: block;
+}
+.form.register.active {
+    display: block !important; /* Force display to block */
+}
+
+/* Additional styling for responsiveness */
+@media (max-width: 768px) {
+.container {
+width: 90%;
+}
+}
