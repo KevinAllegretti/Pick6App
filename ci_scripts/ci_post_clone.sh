@@ -1,8 +1,6 @@
 #!/bin/sh
-echo "Installing npm dependencies..."
+set -e
+echo "=== POST CLONE SCRIPT STARTING ==="
 npm install
-
-echo "Running Capacitor sync..."
 npx cap sync ios
-
-echo "Build script completed successfully"
+echo "=== POST CLONE COMPLETED ==="
